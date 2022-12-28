@@ -36,7 +36,7 @@ body{
     /* width: 100vw; */
      align-items: center;
     justify-content: center; 
-
+position: relative;
  
 }
 .main_container{
@@ -149,10 +149,12 @@ grid-template-areas:
     width: 120px;
     height: 80%;
     font-size:16px;
+    margin-left: 50px;
 }
 .search_box::placeholder{
     font-family: fontawesome;
     font-size: 12px;
+
 }
 
 .row_column{
@@ -285,12 +287,52 @@ input::-webkit-inner-spin-button{
 
 }
 
+#canvas{
+    /* width: 100vw;
+    height: 100vh; */
+    /* opacity: 0.2; */
+    /* position: relative; */
+    /* display: none; */
+    position: fixed;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+/* margin-top: 10px; */
+    /* width: 100%;
+    height: 100%; */
+    /* position: relative; */
+    border: 2px solid black;
+/* display:  none; */
+/* opacity: 0.1; */
+     /* bottom: 50%;  */
+    /* left: 50%; */
+    /* right: 50%; */
 
+    /* width: 100vw;
+    height: 100vh; */
+    /* background-color: red; */
+    z-index: -10;
+/* opacity: 0; */
+}
+.drawing{
+    /* top: 0;
+    bottom: 0; */
+    /* position: absolute; */
+    font-size: 50px;
+    z-index: 1000;
+/* background-color: red; */
+/* top: 0%;
+bottom: 0%; */
+   position: absolute; 
+   left: 0;
+   top :0px;
+}
 </style>
 </head>
 <body>
-
-        <div class="main_container">
+    <!-- <canvas id="canvas"> -->
+    <div class="main_container">
        
 
             <div class="action">
@@ -381,9 +423,12 @@ input::-webkit-inner-spin-button{
         </label>
         </div>
         <button type="submit" class="btn btn-primary form right">Submit</button>
-        
- </div>
+
+
+ 
+    </div>
 <div class="display">
+    
  <input type="text" class="box result_screen" name="quantity" id="quantity">
  </div>
 
@@ -418,9 +463,14 @@ input::-webkit-inner-spin-button{
                
        
             </div>
-        </div>
-       
+       </div>
 
+
+    <!-- </canvas> -->
+<canvas id="canvas">
+    
+</canvas>
+<i class="fa-solid fa-pen-ruler drawing"></i>
        
         <!-- <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script> -->
 <!-- <script src="colorpicker.js"></script> -->
@@ -796,7 +846,70 @@ document.querySelector(".left").addEventListener("click",()=>{
 }
 });
 }
+// console.log("Hi");
+
+window.addEventListener("load",()=>{
+   
+    var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+// ctx.fillStyle = "#FF0000";
+// ctx.fillRect(0,0,150,75);
+//   const canvas = document.getElementById("canvas");
+//     // canvas.style.backgroundColor = "red";
+//     const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+// ctx.strokeStyle = "red";
+// ctx.lineWidth = 5;
+// ctx.strokeRect(100,100,200,500)
+// ctx.strokeStyle = "blue";
+// ctx.strokeRect(200,200,200,500)
+
+//     ctx.fillStyle = "green";
+// ctx.fillRect(50, 200, 150, 100);
+    let painting = false;
+    function startPosition(){
+            painting = true;
+            draw(e);
+    }
+    function finishedPosition(){
+            painting = false;
+            ctx.beginPath();
+    }
+    function draw(e){
+        if(!painting)return;
+        ctx.lineWidth  = 10;
+        ctx.lineCap ="round"; 
+        ctx.lineTo(e.clientX,e.clientY);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(e.clientX,e.clientY);
+    }
+
+    canvas.addEventListener("mousedown",startPosition)
+    canvas.addEventListener("mouseup",finishedPosition)
+    canvas.addEventListener("mousemove",draw)
+
+
+});
+
+document.querySelector(".drawing").addEventListener("click",()=>{
+        console.log("5");
+  
+    if( document.getElementById("canvas").style.zIndex === "0"){
+        document.getElementById("canvas").style.zIndex = "-1";
+        document.querySelector(".drawing").style.color = "black"
+    }else{
+        document.getElementById("canvas").style.zIndex = "0";
+        document.querySelector(".drawing").style.color = "red"
+    }
+})
+
 
 </script>
+<!-- <script src="../Chaing_Api/canvas.js">
+
+</script> -->
 </body>
 </html>
