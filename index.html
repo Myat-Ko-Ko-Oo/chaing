@@ -385,6 +385,12 @@ bottom: 0%; */
                         minus
                     </label>
                     </div>
+                    <div class="check_inrow">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio9">
+                        <label class="form-check-label" >
+                            ၀မ်းချိန်း
+                        </label>
+                        </div>
                     <button type="submit"  class="btn btn-primary left">Submit</button>
              </div>
              <div class="item6">
@@ -430,11 +436,22 @@ bottom: 0%; */
 
  
     </div>
+  
 <div class="display">
     
  <input type="text" class="box result_screen" name="quantity" id="quantity">
  </div>
-
+ <div>
+    <pre>
+            မြန်မာ             ထိုင်း
+        ပါ၀ါ    နက္ခတ်     ပါ၀ါ      နက္ခတ်       
+        16      18       13         19
+        27      24       26         23
+        38      35       47         48   
+        94      96       58         56  
+        05      07       09         07
+    </pre>
+</div>
  <?php
         require('chaing_connect.php');
     // $number = '0';
@@ -521,7 +538,7 @@ document.querySelector(".box.add_box").addEventListener("keyup",(event)=>{
 for(el of array){
     document.querySelector(".row_column").innerHTML+=` <div class="box box_con" id="result_${el['id']}">
                 <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
-                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+                  <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
             </div>`
 }
    
@@ -579,7 +596,9 @@ element.addEventListener("click",(event)=>{
         // console.log( event.target.click())
       
         switch (document.querySelector(".choose").id.split("_")[1][5]) {
-  case "1":
+  
+
+            case "1":
     radio1();
 
 // eval(eval(final_value).join('+'));
@@ -708,14 +727,14 @@ all_minraw=[]
 all_minfirst=[]
 all_minsec=[]
 all_minus=[]
-
+one_chaing=[]
 for(el of all){
     // console.log(el.value);
 all_first.push(`${el.value[0]}.${el.id}`)
 
 all_second.push(`${el.value[1]}.${el.id}`)
 all_plus.push(`${parseInt(el.value[0])+parseInt(el.value[1])}.${el.id}`)
-
+one_chaing = all_first.concat(all_second)
 fun = (num)=>{}
 // if(`${parseInt(el.value[0])-parseInt(el.value[1])}`<0){
     
@@ -758,7 +777,15 @@ fun = (num)=>{}
 
 
 
+ radio9=()=>{
+   
 
+
+
+
+
+console.log("9"); 
+}
 
  
 radio5=()=>{
@@ -815,6 +842,8 @@ radio8=()=>{
 return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box").value)
 
 }
+
+
 searching  =all_minus.filter(selected)
 
 for(el of searching){
@@ -824,6 +853,7 @@ document.querySelector(".search_box").value=""
 }
     // console.log("8");
 }
+
 document.querySelector(".left").addEventListener("click",()=>{
         // console.log( event.target.click())
       
@@ -842,6 +872,21 @@ document.querySelector(".left").addEventListener("click",()=>{
     break;
     case "8":
         radio8();
+    break;
+    case "9":
+    let selected= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box").value)
+
+}
+searching  =one_chaing.filter(selected)
+
+for(el of searching){
+    document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+
+
+}
+document.querySelector(".search_box").value=""
     break;
   
     default:
