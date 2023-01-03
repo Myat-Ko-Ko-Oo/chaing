@@ -145,18 +145,25 @@ grid-template-areas:
     display: flex;
     flex-direction: row;
 }
-.search_box{
+.search_box,.search_box_2{
     width: 120px;
     height: 80%;
     font-size:16px;
     margin-left: 50px;
+}
+.search_box_2{
+    display: none;
 }
 .search_box::placeholder{
     font-family: fontawesome;
     font-size: 12px;
 
 }
+.search_box_2::placeholder{
+    font-family: fontawesome;
+    font-size: 12px;
 
+}
 .row_column{
 
     margin-top: 150px;
@@ -167,6 +174,32 @@ grid-template-columns: repeat(auto-fit,minmax(0,70px));
      /* margin-left: 10px; */
 
 }
+.row_column_display2{
+
+  /* display: flex; */
+  display: none;
+  
+  
+  grid-template-columns: repeat(auto-fit,minmax(15%,0));
+     gap:20px   20px; 
+ 
+    margin-top: 150px;
+margin-left: 40px;
+    
+
+}
+.row_column_display2 > *  {
+   text-align: center;
+    /* background-color: red; */
+    /* width: 100%;
+    height: 100%; */
+}
+.dis2{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(20%,0));
+     gap:10px   40px;  
+}
+
 .box{
     width: 50px;
     height: 50px;
@@ -181,6 +214,12 @@ grid-template-columns: repeat(auto-fit,minmax(0,70px));
     justify-content: center;  */
     /* -webkit-appearance: none; */
 }
+.end{
+    box-shadow: 2px 2px 2px 2px red;
+    color: red;
+    background-color: red;
+}
+
 .box.delete{
     display: none;
 }
@@ -331,6 +370,21 @@ bottom: 0%; */
    left: 0;
    top :0px;
 }
+.view{
+    align-self:flex-end;
+    font-size: 50px;
+}
+.display2{
+    align-self:flex-end;
+    font-size: 50px;
+    display: none;
+}
+.line{
+    background-color: red;
+    width: 300%;
+    height: 2px;
+
+}
 </style>
 </head>
 <body>
@@ -359,7 +413,11 @@ bottom: 0%; */
                 </form> -->
 
                     <div class="item4">
-                <input type="number" placeholder="Digit Search &#xf061;" class="search_box "></div>
+                <input disabled type="number" placeholder="Digit Search &#xf061;" class="search_box ">
+                <input disabled type="number" placeholder="Digit Search &#xf061;" class="search_box_2">
+            </div>
+                <div>
+                    </div>
                              <div class="form-check item5">
                                 <div class="check_inrow">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio5">
@@ -380,11 +438,11 @@ bottom: 0%; */
                     </label>
                     </div>
                     <div class="check_inrow">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio8">
-                    <label class="form-check-label" >
-                        minus
-                    </label>
-                    </div>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio9">
+                        <label class="form-check-label" >
+                            minus
+                        </label>
+                        </div>
                     <div class="check_inrow">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio9">
                         <label class="form-check-label" >
@@ -393,6 +451,7 @@ bottom: 0%; */
                         </div>
                     <button type="submit"  class="btn btn-primary left">Submit</button>
              </div>
+            
              <div class="item6">
                 <div class="color-picker"></div>
                 <div id="color-indicator" class="color-indicator"></div>
@@ -441,6 +500,7 @@ bottom: 0%; */
     
  <input type="text" class="box result_screen" name="quantity" id="quantity">
  </div>
+
  <div>
     <pre>
             မြန်မာ             ထိုင်း
@@ -452,6 +512,9 @@ bottom: 0%; */
         05      07       09         07
     </pre>
 </div>
+<i class="fa-solid fa-table-cells-large view"></i>
+<i class="fa-solid fa-table-cells display2"></i>
+
  <?php
         require('chaing_connect.php');
     // $number = '0';
@@ -477,11 +540,69 @@ bottom: 0%; */
             
             
             <div class="row_column">
-         
-             
-               
-               
-       
+         </div>
+            <div class="row_column_display2">
+<div class="dis2 one">
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+</div>
+<div class="dis2 two">
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+</div>
+<div class="dis2 three">
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+</div>
+<div class="dis2 four">
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+    
+</div>
+<div class="dis2 five">
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+</div>
+<div class="dis2 six">
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+    <div class="box box_con" id="result_${el['id']}">
+        <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+          <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+    </div>
+</div>
             </div>
        </div>
 
@@ -498,13 +619,23 @@ bottom: 0%; */
 <script>
 const url = "https://script.googleusercontent.com/macros/echo?user_content_key=mjsJ69srufFj-0g8F0OkP__Ciy5__1Yw7OhEXGKV8xMnICRCf0C1ZXUeO1Zibwl_4OPruBrSmY8Qa6syRUaNgE_WuM7jw2O5m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC9SeqZVm-77uExarZb0zsDmex3qOw_BtHAnu4vlfqIDX3FtSfBS5ISmdM9Sdi7oh5oUCUl_gKRyYLvO2gRHyyGVW_HjeCVv1tz9Jw9Md8uu&lib=MBtkfQnLjlz2sd9EhmLX58aYEaSESECOi";
 // num = 0   
+// document.querySelector(".display2").addEventListener("click",()=>{
+ 
+
+//  //  console.log("2");
+ 
+  
+//   })
 interval=()=>{fetch(url)
     .then(response=>
         response.json()).then(array_response=>
-            array= array_response
+           
+        array= array_response
+       
         )
         // console.log(array);
-     
+        document.querySelector(".search_box").disabled = false
+    document.querySelector(".search_box_2").disabled = false
           run();
        
 
@@ -520,12 +651,22 @@ clearInterval(api)
    }, 1000);
 
 
-
+// interval()
 // run=()=>{
 //     console.log(array);
 // }
 
-run=()=>{ document.querySelector(".add_box").value  = '';
+// document.querySelector(".display2").addEventListener("click",()=>{
+ 
+
+//    console.log("2");
+ 
+  
+// })
+
+run=()=>{
+
+    document.querySelector(".add_box").value  = '';
     document.querySelector(".box.add_box").value = '';
 document.querySelector(".box.add_box").addEventListener("keyup",(event)=>{
     mainadd =+ event.target.value 
@@ -536,12 +677,557 @@ document.querySelector(".box.add_box").addEventListener("keyup",(event)=>{
 //  console.log(array);
 
 for(el of array){
+    // for(i =0;i<1;i++){
+    //     console.log("2");
+    // }
     document.querySelector(".row_column").innerHTML+=` <div class="box box_con" id="result_${el['id']}">
                 <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
                   <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
             </div>`
 }
+//    optionrun()
+document.querySelector(".display2").addEventListener("click",()=>{
+    document.querySelector(".row_column_display2").style.display  = "none"
+    document.querySelector(".row_column").style.display="grid"
+    document.querySelector(".display2").style.display = "none"
+    document.querySelector(".view").style.display = "block"
+    document.querySelector(".search_box_2").style.display="none"
+    document.querySelector(".search_box").style.display="block"
+    // document.querySelector(".row_column_display2").classList.add("row_column")
    
+ //  console.log("2");
+ 
+  
+ })
+ document.querySelector(".view").addEventListener("click",()=>{
+    document.querySelector(".one").innerHTML=""
+    document.querySelector(".two").innerHTML=""
+    document.querySelector(".three").innerHTML=""
+    document.querySelector(".four").innerHTML=""
+    document.querySelector(".five").innerHTML=""
+    document.querySelector(".six").innerHTML=""
+    document.querySelector(".row_column_display2").style.display  = "grid"
+    document.querySelector(".row_column").style.display="none"
+    document.querySelector(".search_box").style.display="none"
+    document.querySelector(".search_box_2").style.display="block"
+document.querySelector(".view").style.display = "none"
+document.querySelector(".display2").style.display = "block"
+option=()=>{
+
+document.querySelectorAll(".fa-xmark").forEach(element => {
+    element.addEventListener("click",(event)=>{
+        console.log(event.target.parentElement.classList.add("delete"));
+    })
+    // console.log("click");
+});
+
+document.querySelectorAll(".box_con").forEach(element => {
+    element.addEventListener("click",(event)=>{
+       
+        if(event.target.parentElement.classList.contains("select")){
+            event.target.parentElement.classList.remove("select");
+            
+        }else if(event.target.parentElement.classList.contains("searching_select")){
+            event.target.parentElement.classList.replace("searching_select","select")
+        }
+        else if(event.target.parentElement.classList.contains("selected")){
+            event.target.parentElement.classList.replace("selected","select")
+            event.target.parentElement.classList.add("select_selected")
+            // element.addEventListener("click",(event)=>{ event.target.parentElement.classList.replace("select","selected")})
+            // if(event.target.parentElement.classList.contains("select")){
+               
+            // }
+        }
+        else if(event.target.parentElement.classList.contains("select_selected")){
+            event.target.parentElement.classList.replace("select_selected","selected")
+        }
+        
+        else{
+            event.target.parentElement.classList.add("select");
+        }
+        
+    })
+    // element.addEventListener("click",(event)=>{
+    //     console.log("hi");
+    // })
+});
+// document.querySelector(".box.result_screen").addEventListener("click",()=>{
+//     console.log("hi");
+// })
+
+right_check =  document.querySelectorAll(".form-check-input");
+
+    document.querySelectorAll(".form-check-input").forEach(element => {
+       
+
+element.addEventListener("click",(event)=>{
+    for( el of document.querySelectorAll(".form-check-input")){
+        el.classList.remove("choose");
+    }
+    event.target.classList.add("choose");
+    document.querySelector(".right").addEventListener("click",()=>{
+        // console.log( event.target.click())
+      
+        switch (document.querySelector(".choose").id.split("_")[1][5]) {
+  
+
+            case "1":
+    radio1();
+
+// eval(eval(final_value).join('+'));
+
+   
+
+
+
+
+
+    break;
+    case "2":
+        radio2();
+    break;
+    case "3":
+        radio3();
+    break;
+    case "4":
+        radio4();
+    break;
+
+  
+    default:
+    text = "Looking forward to the Weekend";
+}
+
+     
+     
+})
+
+    
+})
+});
+
+radio2=()=>{
+    selected_value = document.querySelectorAll(".box_con.select input");
+    // eval([1,"2;alert('Malicious code!')"].join('+'))
+    final_value =[] 
+    for(el of selected_value){
+ 
+        final_value.push(el.value[1])
+      
+
+    }
+        
+    //    console.log(typeof eval(eval(final_value).join('+')));
+    
+            document.querySelector(".result_screen").value = eval(eval(final_value).join('+')).toString();;
+
+
+    for(el of document.querySelectorAll(".box_con.select input")){
+        el.parentElement.classList.replace("select", "selected");
+        // console.log(el);
+        // document.querySelector(".result_screen").value = eval(eval(final_value).join('+'));
+    }
+}
+
+
+
+radio1=()=>{
+
+    selected_value = document.querySelectorAll(".box_con.select input");
+    // eval([1,"2;alert('Malicious code!')"].join('+'))
+    final_value =[] 
+    for(el of selected_value){
+ 
+        final_value.push(el.value[0])
+      
+
+    }
+    document.querySelector(".result_screen").value = eval(eval(final_value).join('+')).toString();
+    console.log(eval(eval(final_value).join('+')));
+    for(el of document.querySelectorAll(".box_con.select input")){
+        el.parentElement.classList.replace("select", "selected");
+        // console.log(el);
+    }
+
+}
+radio3=()=>{
+    selected_value = document.querySelectorAll(".box_con.select input");
+    // eval([1,"2;alert('Malicious code!')"].join('+'))
+    final_value =[] 
+    for(el of selected_value){
+ 
+        final_value.push(el.value[0])
+      
+
+    }
+    document.querySelector(".result_screen").value = eval(eval(final_value).join('-')).toString();
+    for(el of document.querySelectorAll(".box_con.select input")){
+        el.parentElement.classList.replace("select", "selected");
+        console.log(el);
+    }
+}
+radio4=()=>{
+    selected_value = document.querySelectorAll(".box_con.select input");
+    // eval([1,"2;alert('Malicious code!')"].join('+'))
+    final_value =[] 
+    for(el of selected_value){
+ 
+        final_value.push(el.value[1])
+      
+
+    }
+    document.querySelector(".result_screen").value = eval(eval(final_value).join('-')).toString();
+    for(el of document.querySelectorAll(".box_con.select input")){
+        el.parentElement.classList.replace("select", "selected");
+        console.log(el);
+    }   
+}
+
+
+// display=(result)=>{
+
+//     document.querySelector(".result_screen").value = result;
+//     document.querySelector(".display").innerHTML=` <input type="number" class="box result_screen" name="quantity" id="quantity"
+//     value="${result}"
+//     >`
+// }
+
+all_dis2=document.querySelectorAll(".dis2 .box.num")
+all_dis2_first =[]
+all_dis2_second=[]
+all_dis2_plus=[]
+all_dis2_minraw=[]
+all_dis2_minfirst=[]
+all_dis2_minsec=[]
+all_dis2_minus=[]
+one_dis2_chaing=[]
+for(el of all_dis2){
+    // console.log(el.value);
+all_dis2_first.push(`${el.value[0]}.${el.id}`)
+
+all_dis2_second.push(`${el.value[1]}.${el.id}`)
+all_dis2_plus.push(`${parseInt(el.value[0])+parseInt(el.value[1])}.${el.id}`)
+one_dis2_chaing = all_dis2_first.concat(all_dis2_second)
+fun = (num)=>{}
+// if(`${parseInt(el.value[0])-parseInt(el.value[1])}`<0){
+    
+//      all_minus.push(`${parseInt(el.value[0])-parseInt(el.value[1])}.${el.id}`)
+
+//      all_minus.map(fun)
+//      function fun(num){
+//         num * 10
+//         console.log(num.split(".")[0]*-1);
+//      }
+    // console.log(all_minus);
+
+    // console.log(eval(all_minus)); 
+    // console.log(`${eval(raw)}`);
+        // console.log(all_minus);
+    // all_minus.push(eval(`${raw}`))
+// }else{
+     all_dis2_minraw.push(`${parseInt(el.value[0])-parseInt(el.value[1])}.${el.id}`)
+// }
+
+
+
+
+
+
+
+
+}
+ for(el of all_dis2_minraw){
+//   console.log(all_min.length);
+     if(el.split(".")[0]<0){
+        all_dis2_minfirst.push(`${el.split(".")[0]*-1}.${el.split(".")[1]}`)
+     }
+     else{
+        all_dis2_minsec.push(`${el.split(".")[0]}.${el.split(".")[1]}`)
+     }
+ }
+
+ all_dis2_minus = all_dis2_minfirst.concat(all_minsec)
+
+
+
+ radio9=()=>{
+   
+
+
+
+
+
+console.log("9"); 
+}
+
+ 
+radio5=()=>{
+   
+
+    let selected= (num)=>{
+
+        return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box_2").value)
+    
+
+    }
+        searching  =all_dis2_first.filter(selected)
+   
+        for(el of searching){
+            document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+
+        
+        }
+        // document.querySelector(".search_box_2").value=""
+        
+}
+radio6=()=>{
+    let selected= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box_2").value)
+
+}
+searching  =all_dis2_second.filter(selected)
+
+for(el of searching){
+    document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+// console.log(document.querySelector(`#${el.split(".")[1]}`).parentElement);
+// document.querySelector(".search_box_2").value=""
+}
+    // console.log("6");
+}
+radio7=()=>{
+    // console.log("7");
+    let selected= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box_2").value)
+
+}
+searching  =all_dis2_plus.filter(selected)
+
+for(el of searching){
+    document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+
+// document.querySelector(".search_box_2").value=""
+}
+}
+radio8=()=>{
+    let selected= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box_2").value)
+
+x}
+
+
+searching  =all_dis2_minus.filter(selected)
+
+for(el of searching){
+    document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+
+// document.querySelector(".search_box_2").value=""
+}
+    // console.log("8");
+}
+
+document.querySelector(".left").addEventListener("click",()=>{
+        // console.log( event.target.click())
+      
+        switch (document.querySelector(".choose").id.split("_")[1][5]) {
+
+
+    case "5":
+    radio5();
+
+    break;
+    case "6":
+        radio6();
+    break;
+    case "7":
+        radio7();
+    break;
+    case "8":
+        radio8();
+    break;
+    case "9":
+    let selected= (num)=>{
+return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box_2").value)
+
+}
+searching  =one_dis2_chaing.filter(selected)
+console.log(searching); 
+for(el of searching){
+    document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+// console.log("${document.querySelector(`#${el.split(".")[1]}`).id}+"");
+// console.log(document.querySelector(`#${el.split(".")[1]}`));
+}
+// document.querySelector(".search_box2").value=""
+    break;
+  
+    default:
+    text = "Looking forward to the Weekend";
+}
+});
+
+ }
+ 
+j=0;
+s=[]
+s.push(0)
+h=s[0]
+ 
+for (let i = 0; i <array.length;i++) {
+    // console.log(i,j);
+    
+    if(j<10){
+        if(j===9){
+            document.querySelector(".one").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".one").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+        option()
+        
+        j++;
+         h++;
+        if(j===10){
+           
+
+
+
+
+            
+            k=0;
+            for(k=0;k<10;k++){
+             if(k===9){
+            document.querySelector(".two").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".two").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+         option()
+        h++
+        j++
+            }   
+        if(k===10){
+            for(l=0;l<10;l++){
+                
+             if(l===9){
+            document.querySelector(".three").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".three").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+         option()
+        j++;
+         h++;
+        // if(l===10){
+        //     m=0;
+        
+    // }
+        }
+        }
+        if(l===10){
+            for(m=0;m<10;m++){
+                if(m===9){
+            document.querySelector(".four").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".four").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`} 
+        option()
+         j++
+
+         h++;
+        // if(l===10){
+        //     m=0;
+        
+    // }
+        }
+        }
+        if(m===10){
+            for(n=0;n<10;n++){
+                if(n===9){
+            document.querySelector(".five").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".five").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`} 
+        option()
+         j++
+         h++;
+        // if(l===10){
+        //     m=0;
+        
+    // }
+        }
+        }
+        if(n===10){
+            for(o=0;o<10;o++){
+                if(o===9){
+            document.querySelector(".six").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".six").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+         option()
+       j++
+         h++;
+        // if(l===10){
+        //     m=0;
+        
+    // }
+    
+        }
+      
+        s[0] = j
+       j=0
+        
+    
+    
+    }
+       
+        
+       
+        }
+
+     
+    }
+    
+        
+   
+   
+
+}
+
+
+
+
+
+
+})
+
+ 
+
+
+
+// optionrun =()=>{
 
 document.querySelectorAll(".fa-xmark").forEach(element => {
     element.addEventListener("click",(event)=>{
@@ -803,7 +1489,7 @@ radio5=()=>{
 
         
         }
-        document.querySelector(".search_box").value=""
+        // document.querySelector(".search_box").value=""
         
 }
 radio6=()=>{
@@ -817,7 +1503,7 @@ searching  =all_second.filter(selected)
 for(el of searching){
     document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
 
-document.querySelector(".search_box").value=""
+// document.querySelector(".search_box").value=""
 }
     // console.log("6");
 }
@@ -833,7 +1519,7 @@ searching  =all_plus.filter(selected)
 for(el of searching){
     document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
 
-document.querySelector(".search_box").value=""
+// document.querySelector(".search_box").value=""
 }
 }
 radio8=()=>{
@@ -849,7 +1535,7 @@ searching  =all_minus.filter(selected)
 for(el of searching){
     document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
 
-document.querySelector(".search_box").value=""
+// document.querySelector(".search_box").value=""
 }
     // console.log("8");
 }
@@ -886,7 +1572,7 @@ for(el of searching){
 
 
 }
-document.querySelector(".search_box").value=""
+// document.querySelector(".search_box").value=""
     break;
   
     default:
@@ -895,6 +1581,20 @@ document.querySelector(".search_box").value=""
 });
 }
 // console.log("Hi");
+
+
+ 
+ 
+    
+
+ 
+    
+
+ // document.querySelector(".row_column_display2").classList.replace("row_column_display2","row_column")
+
+ 
+
+
 
 window.addEventListener("load",()=>{
    
