@@ -32,9 +32,9 @@ body{
         /* width: 100vw;
     height: 2000px; */
     /* background-color: black; */
-    padding:20px; 
-    display: flex; 
+     display: flex; 
     /* width: 100vw; */
+    /* padding:50px; */
      align-items: center;
     justify-content: center; 
 position: relative;
@@ -48,6 +48,7 @@ position: relative;
     /* justify-content: space-evenly; */
   /* background-color: aqua; */
     position: relative;
+    /* padding:50px; */
     /* width: 100%; */
     /* height: 100vh;
     width: 100vw; */
@@ -166,7 +167,7 @@ grid-template-areas:
 
 }
 .row_column{
-
+    padding: 20px;
     margin-top: 150px;
 display: grid;
 grid-template-columns: repeat(auto-fit,minmax(0,70px));
@@ -380,16 +381,28 @@ bottom: 0%; */
     font-size: 50px;
     display: none;
 }
+.fa-chart-line{
+    font-size: 50px;
+    cursor: pointer;
+
+}
 .line{
     background-color: red;
     width: 300%;
     height: 2px;
 
 }
+.over_flow{
+    /* width: 100vw; */
+    height: 100vh;
+    background-color: red;
+    display:none;
+}
 </style>
 </head>
 <body>
-    <!-- <canvas id="canvas"> -->
+    <!-- <canvas id="canvas"> --> 
+   
     <div class="main_container">
        
 
@@ -439,7 +452,7 @@ bottom: 0%; */
                     </label>
                     </div>
                     <div class="check_inrow">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio9">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio8">
                         <label class="form-check-label" >
                             minus
                         </label>
@@ -450,6 +463,12 @@ bottom: 0%; */
                             ၀မ်းချိန်း
                         </label>
                         </div>
+                        <div class="check_inrow">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio0">
+                            <label class="form-check-label" >
+                             2Digit
+                            </label>
+                            </div>
                     <button type="submit"  class="btn btn-primary left">Submit</button>
              </div>
             
@@ -515,6 +534,7 @@ bottom: 0%; */
 </div>
 <i class="fa-solid fa-table-cells-large view"></i>
 <i class="fa-solid fa-table-cells display2"></i>
+<i class="fa-solid fa-chart-line chart"></i>
 
  <?php
         require('chaing_connect.php');
@@ -606,7 +626,9 @@ bottom: 0%; */
 </div>
             </div>
        </div>
-
+       <div class="over_flow">
+      01 02
+       </div>
 
     <!-- </canvas> -->
 <canvas id="canvas">
@@ -644,7 +666,8 @@ interval=()=>{fetch(url)
    }
 
   api =  setInterval(() => {
-    interval()
+    interval();
+    chart();
     // if(num ===15){
 
 clearInterval(api)
@@ -1415,10 +1438,11 @@ all_minfirst=[]
 all_minsec=[]
 all_minus=[]
 one_chaing=[]
+all_raw=[]
 for(el of all){
     // console.log(el.value);
 all_first.push(`${el.value[0]}.${el.id}`)
-
+all_raw.push(`${el.value}.${el.id}`)
 all_second.push(`${el.value[1]}.${el.id}`)
 all_plus.push(`${parseInt(el.value[0])+parseInt(el.value[1])}.${el.id}`)
 one_chaing = all_first.concat(all_second)
@@ -1492,7 +1516,8 @@ radio5=()=>{
         }
         // document.querySelector(".search_box").value=""
         
-}
+        console.log("5"); 
+    }
 radio6=()=>{
     let selected= (num)=>{
 
@@ -1538,9 +1563,22 @@ for(el of searching){
 
 // document.querySelector(".search_box").value=""
 }
-    // console.log("8");
+    console.log("8");
 }
+radio10=()=>{
+    let selected= (num)=>{
 
+return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box").value)
+
+}
+searching  =all_raw.filter(selected)
+
+for(el of searching){
+    document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+
+
+}
+}
 document.querySelector(".left").addEventListener("click",()=>{
         // console.log( event.target.click())
       
@@ -1561,6 +1599,7 @@ document.querySelector(".left").addEventListener("click",()=>{
         radio8();
     break;
     case "9":
+        console.log("9");
     let selected= (num)=>{
 
 return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box").value)
@@ -1573,7 +1612,25 @@ for(el of searching){
 
 
 }
+break;
+
+//     let selected= (num)=>{
+
+// return num.split(".")[0].toLowerCase().includes(document.querySelector(".search_box").value)
+
+// }
+// searching  =one_chaing.filter(select)
+
+// for(el of searching){
+//     document.querySelector(`#${el.split(".")[1]}`).parentElement.classList.add("searching_select")
+
+
+// }
 // document.querySelector(".search_box").value=""
+case "0":
+
+radio10();
+
     break;
   
     default:
@@ -1592,9 +1649,41 @@ for(el of searching){
     
 
  // document.querySelector(".row_column_display2").classList.replace("row_column_display2","row_column")
+chart_2digit =[]
+chart=()=>{
 
- 
+for (let i = 0; i < 100; i++) {
 
+    if(i<10){
+        s = "0"+i;
+        let selected= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(s)
+
+
+
+}
+
+searching  =all_raw.filter(selected)
+chart_2digit[i] = searching.length;
+    }else{
+
+        let selected= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(i)
+
+}
+
+searching  =all_raw.filter(selected)
+chart_2digit[i] = searching.length;
+
+    }
+    n = -1; des = chart_2digit.map(function(a){n++;return a+"."+n})
+    function compareNumbers(a,b){return b-a}
+    des = des.sort(compareNumbers)
+   
+}
+}
 
 
 window.addEventListener("load",()=>{
@@ -1655,7 +1744,9 @@ document.querySelector(".drawing").addEventListener("click",()=>{
     }
 })
 
-
+document.querySelector(".chart").addEventListener("click",()=>{
+    console.log("click");
+})
 </script>
 <!-- <script src="../Chaing_Api/canvas.js">
 
