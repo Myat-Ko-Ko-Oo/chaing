@@ -42,17 +42,17 @@ position: relative;
 }
 .main_container{
 
-    /* background-color: red; */
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-evenly; */
-  /* background-color: aqua; */
-    position: relative;
-    /* padding:50px; */
-    /* width: 100%; */
-    /* height: 100vh;
-    width: 100vw; */
-    /* height: 2000px; */
+/* background-color: red; */
+display: flex;
+flex-direction: column;
+/* justify-content: space-evenly; */
+/* background-color: aqua; */
+position: relative;
+/* padding:50px; */
+/* width: 100%; */
+/* height: 100vh;
+width: 100vw; */
+/* height: 2000px; */
 }
  .item1{grid-area: adda;}
 .item2{grid-area: export;}
@@ -393,16 +393,61 @@ bottom: 0%; */
 
 }
 .over_flow{
-    /* width: 100vw; */
+    width: 100vw;
     height: 100vh;
-    background-color: red;
+    /* background-color: red; */
     display:none;
+    justify-content: space-evenly;
+}
+.sheet{
+    color: blue;
+    font-size: larger;
+    font-weight: 500    ;
+    display: flex;
+    align-items: center;
+}
+.cancel{
+    cursor: pointer;
+    color:red;
+    font-size: 60px;
 }
 </style>
 </head>
 <body>
     <!-- <canvas id="canvas"> --> 
-   
+        <div class="over_flow">
+            
+       
+            <div class="f">
+                <h1>F</h1>
+                <div class="sheet"> 
+                
+                </div>
+                
+            
+            </div>
+            
+            <div class="s">
+                <h1>S</h1>
+                <div class="sheet"> 
+           
+                </div>
+           
+            
+            </div>
+            
+            <div class="twodigit">
+                <h1>2</h1>
+                <div class="sheet"> 
+         
+                </div>
+             
+            
+            </div>
+            <i class="fa-solid fa-xmark cancel"></i>   
+        </div>
+    
+    
     <div class="main_container">
        
 
@@ -412,7 +457,6 @@ bottom: 0%; */
             <!-- <form action="chaing_add.php" method="POST" class="form_creat">
                     <input type="number" class="shadow_box add_box" name="add_num" style="display:none; margin-left:150px;">
                     <button class="btn btn-primary " type="submit" name="add" >ADD
-
                     </form> -->
                     </button>
         </div>
@@ -524,7 +568,7 @@ bottom: 0%; */
  <div>
     <pre>
             မြန်မာ             ထိုင်း
-        ပါ၀ါ    နက္ခတ်     ပါ၀ါ      နက္ခတ်       
+        ပါဝါ    နက်ခတျ     ပါဝါ      နက်ခတျ       
         16      18       13         19
         27      24       26         23
         38      35       47         48   
@@ -626,10 +670,7 @@ bottom: 0%; */
 </div>
             </div>
        </div>
-       <div class="over_flow">
-      01 02
-       </div>
-
+      
     <!-- </canvas> -->
 <canvas id="canvas">
     
@@ -1649,10 +1690,65 @@ radio10();
     
 
  // document.querySelector(".row_column_display2").classList.replace("row_column_display2","row_column")
-chart_2digit =[]
+
+document.querySelector(".chart").addEventListener("click",()=>{
+    document.querySelector(".main_container").style.display = "none";
+    document.querySelector(".over_flow").style.display = "flex";
+})
+document.querySelector(".cancel").addEventListener("click",()=>{
+    document.querySelector(".main_container").style.display = "flex";
+    document.querySelector(".over_flow").style.display = "none";
+})
+ chart_2digit =[]
+chart_F = []
+chart_S = []
 chart=()=>{
 
-for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 9; i++) {
+        let selected_S= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(i)
+
+}
+
+searching_S  =all_second.filter(selected_S)
+chart_S[i] = searching_S.length;
+n = -1; des_S = chart_S.map(function(a){n++;return a+"."+n})
+    function compareNumbers(a,b){return b-a}
+    des_S = des_S.sort(compareNumbers)
+
+
+
+    }
+
+
+
+
+
+    for (let i = 0; i < 9; i++) {
+        let selected_F= (num)=>{
+
+return num.split(".")[0].toLowerCase().includes(i)
+
+}
+
+searching_F  =all_first.filter(selected_F)
+chart_F[i] = searching_F.length;
+n = -1; des_F = chart_F.map(function(a){n++;return a+"."+n})
+    function compareNumbers(a,b){return b-a}
+    des_F = des_F.sort(compareNumbers)
+
+
+
+    }
+
+
+
+
+
+
+
+    for (let i = 0; i < 100; i++) {
 
     if(i<10){
         s = "0"+i;
@@ -1683,7 +1779,78 @@ chart_2digit[i] = searching.length;
     des = des.sort(compareNumbers)
    
 }
+
+for(el of des_F){
+
+document.querySelector(".f").innerHTML+=`       
+
+<div class="sheet"> 
+<div class="data">${el.split(".")[1]}</div>
+<i class="fa-solid fa-right-long"></i>
+<div class="data">${el.split(".")[0]}</div>
+</div>
+`
+
+
+
 }
+for(el of des_S){
+document.querySelector(".s").innerHTML+=`       
+<div class="sheet"> 
+<div class="data">${el.split(".")[1]}</div>
+<i class="fa-solid fa-right-long"></i>
+<div class="data">${el.split(".")[0]}</div>
+</div>
+        `
+}
+
+// for(el of document.querySelectorAll(".fa-circle")){
+//     el.style.display = "none"
+// }
+
+
+
+for(el of des){
+    if(el.split(".")[1]<10){
+        check_amt_dig = "0"+el.split(".")[1]
+    }
+  else{
+    check_amt_dig = el.split(".")[1]
+  }
+document.querySelector(".twodigit").innerHTML+=`       
+<div class="sheet"> 
+<div class="data">${check_amt_dig}</div>
+<i class="fa-solid fa-right-long"></i>
+<div class="data">${el.split(".")[0]}</div>
+</div>
+        
+        `                    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+ 
 
 
 window.addEventListener("load",()=>{
@@ -1749,7 +1916,6 @@ document.querySelector(".chart").addEventListener("click",()=>{
 })
 </script>
 <!-- <script src="../Chaing_Api/canvas.js">
-
 </script> -->
 </body>
 </html>
