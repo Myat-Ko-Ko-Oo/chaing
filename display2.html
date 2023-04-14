@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
@@ -155,9 +155,10 @@ grid-template-areas:
 
 }
 .row_column{
+    display: none;
     padding: 20px;
     margin-top: 150px;
-display: grid;
+/* display: grid; */
 grid-template-columns: repeat(auto-fit,minmax(0,70px));
      gap:20px   20px; 
    
@@ -167,8 +168,8 @@ grid-template-columns: repeat(auto-fit,minmax(0,70px));
 .row_column_display2{
 
   /* display: flex; */
-  /* display: grid; */
-  display:none;
+  display: grid;
+  /* display:none; */
   
   grid-template-columns: repeat(auto-fit,minmax(15%,0));
      gap:20px   20px; 
@@ -401,10 +402,6 @@ bottom: 0%; */
 }
 
 </style>
-
-
-
-
 </head>
 <body>
    
@@ -569,12 +566,7 @@ bottom: 0%; */
     05      07       09         07
 </pre>
 </div>
-
-    <a href=".//display2.html" target="_blank">
-        <i class="fa-solid fa-table-cells-large view"></i>
-    </i>
-    </a>
-
+<i class="fa-solid fa-table-cells-large view"></i>
 <i class="fa-solid fa-table-cells display2"></i>
 <i class="fa-solid fa-chart-line chart"></i>
 
@@ -681,28 +673,29 @@ while ($row = mysqli_fetch_assoc($result)) {
 const url = "https://script.googleusercontent.com/macros/echo?user_content_key=mjsJ69srufFj-0g8F0OkP__Ciy5__1Yw7OhEXGKV8xMnICRCf0C1ZXUeO1Zibwl_4OPruBrSmY8Qa6syRUaNgE_WuM7jw2O5m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC9SeqZVm-77uExarZb0zsDmex3qOw_BtHAnu4vlfqIDX3FtSfBS5ISmdM9Sdi7oh5oUCUl_gKRyYLvO2gRHyyGVW_HjeCVv1tz9Jw9Md8uu&lib=MBtkfQnLjlz2sd9EhmLX58aYEaSESECOi";
 
 
-// interval=()=>{fetch(url)
-//     .then(response=>
-//         response.json()).then(array_response=>
+interval=()=>{fetch(url)
+    .then(response=>
+        response.json()).then(array_response=>
            
-//         array= array_response
+        array= array_response
        
-//         )
+        )
 
 
-//    }
+   }
  
    
-//   api =  setInterval(() => {
-//     interval()
-// console.log("hi");
-
-// clearInterval(api)
-
-//    }, 1000  );
+  api =  setInterval(() => {
 
 
 
+clearInterval(api)
+
+   }, 3000  );
+
+
+
+// interval()
 
 
 array = [
@@ -3962,7 +3955,7 @@ document.querySelectorAll(".fa-xmark").forEach(element => {
 
 document.querySelectorAll(".box_con").forEach(element => {
     element.addEventListener("click",(event)=>{
-       
+       console.log(event.target.parentElement);
         if(event.target.parentElement.classList.contains("select")){
             event.target.parentElement.classList.remove("select");
             
@@ -4281,16 +4274,16 @@ for(el of searching){
 });
 
  }
-for(el of array){
+// for(el of array){
 
-    document.querySelector(".row_column").innerHTML+=` <div class="box box_con" id="result_${el['id']}">
-                <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
-                  <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-            </div>`
+//     document.querySelector(".row_column").innerHTML+=` <div class="box box_con" id="result_${el['id']}">
+//                 <input disabled class="box num" type="number" value="${el['number']}" id="number_${el['id']}" >
+//                   <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+//             </div>`
 
-}
+// }
 
-option();
+// option();
 
 
 // chart
@@ -4449,155 +4442,191 @@ document.querySelector(".twodigit").innerHTML+=`
 
 
 // display2
-// document.querySelector(".one").innerHTML=``
-// document.querySelector(".two").innerHTML=``
-// document.querySelector(".three").innerHTML=``
-//   document.querySelector(".four").innerHTML=``
-//   document.querySelector(".five").innerHTML=``
-//   document.querySelector(".six").innerHTML=``
-// j=0;
-// s=[]
-// s.push(0)
-// h=s[0]
+document.querySelector(".one").innerHTML=``
+document.querySelector(".two").innerHTML=``
+document.querySelector(".three").innerHTML=``
+  document.querySelector(".four").innerHTML=``
+  document.querySelector(".five").innerHTML=``
+  document.querySelector(".six").innerHTML=``
+j=0;
+s=[]
+s.push(0)
+h=s[0]
  
-// for (let i = 0; i <array.length;i++) {
+for (let i = 0; i <array.length;i++) {
   
     
-//     if(j<10){
-//         if(j===9){
-//             document.querySelector(".one").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`
-//          }  else{ document.querySelector(".one").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`}
-//         option()
+    if(j<10){
+        if(j===9){
+            document.querySelector(".one").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".one").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+        option()
         
-//         j++;
-//          h++;
-//         if(j===10){
+        j++;
+         h++;
+        if(j===10){
            
 
 
 
 
             
-//             k=0;
-//             for(k=0;k<10;k++){
-//              if(k===9){
-//             document.querySelector(".two").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`
-//          }  else{ document.querySelector(".two").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`}
-//          option()
-//         h++
-//         j++
-//             }   
-//         if(k===10){
-//             for(l=0;l<10;l++){
+            k=0;
+            for(k=0;k<10;k++){
+             if(k===9){
+            document.querySelector(".two").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".two").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+         option()
+        h++;
+        j++;
+            }   
+        if(k===10){
+            for(l=0;l<10;l++){
                 
-//              if(l===9){
-//             document.querySelector(".three").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`
-//          }  else{ document.querySelector(".three").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`}
-//          option()
-//         j++;
-//          h++;
-//         // if(l===10){
-//         //     m=0;
+             if(l===9){
+            document.querySelector(".three").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".three").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+         option()
+        j++;
+         h++;
+        // if(l===10){
+        //     m=0;
         
-//     // }
-//         }
-//         }
-//         if(l===10){
-//             for(m=0;m<10;m++){
-//                 if(m===9){
-//             document.querySelector(".four").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`
-//          }  else{ document.querySelector(".four").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`} 
-//            option()
-//          j++
-//          h++;
-//         // if(l===10){
-//         //     m=0;
+    // }
+        }
+        }
+        if(l===10){
+            for(m=0;m<10;m++){
+                if(m===9){
+            document.querySelector(".four").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".four").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+           option()
+         j++;
+         h++;
+        // if(l===10){
+        //     m=0;
         
-//     // }
-//         }
-//         }
-//         if(m===10){
-//             for(n=0;n<10;n++){
-//                 if(n===9){
-//             document.querySelector(".five").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`
-//          }  else{ document.querySelector(".five").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`} 
-//         option()
-//          j++
-//          h++;
-//         // if(l===10){
-//         //     m=0;
+    // }
+        }
+        // option()
+        }
+        if(m===10){
+            for(n=0;n<10;n++){
+                if(n===9){
+            document.querySelector(".five").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".five").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`} 
+        option()
+         j++
+         h++;
+        // if(l===10){
+        //     m=0;
         
-//     // }
-//         }
-//         }
-//         if(n===10){
-//             for(o=0;o<10;o++){
-//                 if(o===9){
-//             document.querySelector(".six").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`
-//          }  else{ document.querySelector(".six").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
-//              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
-//                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-//          </div>`}
-//          option()
-//        j++
-//          h++;
-//         // if(l===10){
-//         //     m=0;
+    // }
+        }
+        }
+        if(n===10){
+            for(o=0;o<10;o++){
+                if(o===9){
+            document.querySelector(".six").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`
+         }  else{ document.querySelector(".six").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+             <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
+               <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
+         </div>`}
+         option()
+       j++
+         h++;
+        // if(l===10){
+        //     m=0;
         
-//     // }
+    // }
     
-//         }
+        }
       
-//         s[0] = j
-//        j=0
+        s[0] = j
+       j=0
         
     
     
-//     }
+    }
        
         
        
-//         }
-//         }
+        }
+        }
     
         
    
-// //    option()
+//    option()
 
-// }
+
+
+document.querySelectorAll(".box_con").forEach(element => {
+    element.addEventListener("click",(event)=>{
+       console.log(event.target.parentElement);
+        if(event.target.parentElement.classList.contains("select")){
+            event.target.parentElement.classList.remove("select");
+            
+        }else if(event.target.parentElement.classList.contains("searching_select")){
+            event.target.parentElement.classList.replace("searching_select","select")
+        }
+        else if(event.target.parentElement.classList.contains("selected")){
+            event.target.parentElement.classList.replace("selected","select")
+            event.target.parentElement.classList.add("select_selected")
+
+        }
+        else if(event.target.parentElement.classList.contains("select_selected")){
+            event.target.parentElement.classList.replace("select_selected","selected")
+        }
+        
+        else{
+            event.target.parentElement.classList.add("select");
+        }
+        
+    })
+
+});
+
+
+
+
+
+
+
+
+}
 
 
 
