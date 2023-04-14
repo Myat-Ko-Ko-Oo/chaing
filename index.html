@@ -468,7 +468,9 @@ bottom: 0%; */
             <input  type="number" placeholder="Digit Search &#xf061;" class="search_box_2">
         </div>
             <div>
-                </div>
+              
+                <button class="btn btn-danger search_delete">se_de</button>
+            </div>
                          <div class="form-check item5">
                             <div class="check_inrow">
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flex_radio5">
@@ -4670,7 +4672,13 @@ document.querySelector(".drawing").addEventListener("click",()=>{
 
 </script>
 <script>
-  
-</script>
+    document.querySelector(".search_delete").addEventListener("click",()=>{
+        
+    
+    for(el of document.querySelectorAll(".searching_select") ){
+    el.classList.remove("searching_select")
+    }
+    })
+    </script>
 </body>
 </html>
