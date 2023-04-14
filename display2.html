@@ -3944,7 +3944,7 @@ array = [
 
 
 
-option=()=>{
+
 
 document.querySelectorAll(".fa-xmark").forEach(element => {
     element.addEventListener("click",(event)=>{
@@ -3953,7 +3953,8 @@ document.querySelectorAll(".fa-xmark").forEach(element => {
 
 });
 
-document.querySelectorAll(".box_con").forEach(element => {
+option = ()=>{
+    document.querySelectorAll(".box_con").forEach(element => {
     element.addEventListener("click",(event)=>{
        console.log(event.target.parentElement);
         if(event.target.parentElement.classList.contains("select")){
@@ -3979,6 +3980,19 @@ document.querySelectorAll(".box_con").forEach(element => {
 
 });
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 right_check =  document.querySelectorAll(".form-check-input");
 
@@ -3992,7 +4006,15 @@ element.addEventListener("click",(event)=>{
     event.target.classList.add("choose");
     document.querySelector(".right").addEventListener("click",()=>{
         // console.log( event.target.click())
-      
+     
+
+
+            option()
+
+
+
+
+
         switch (document.querySelector(".choose").id.split("_")[1][5]) {
   
 
@@ -4104,7 +4126,8 @@ radio4=()=>{
 }
 
 
-all=document.querySelectorAll(".box.num")
+left_option = ()=>{
+    all=document.querySelectorAll(".box.num")
 all_first =[]
 all_second=[]
 all_plus=[]
@@ -4146,6 +4169,11 @@ one_chaing = all_first.concat(all_second)
 
  all_minus = all_minfirst.concat(all_minsec)
 
+
+
+
+
+}
 
 
  
@@ -4273,7 +4301,7 @@ for(el of searching){
 }
 });
 
- }
+ 
 // for(el of array){
 
 //     document.querySelector(".row_column").innerHTML+=` <div class="box box_con" id="result_${el['id']}">
@@ -4454,24 +4482,30 @@ s.push(0)
 h=s[0]
  
 for (let i = 0; i <array.length;i++) {
-  
-    
+
+
     if(j<10){
+    
         if(j===9){
             document.querySelector(".one").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
          </div>`
-         }  else{ document.querySelector(".one").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+         option()
+         left_option()
+        }  else{ document.querySelector(".one").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-         </div>`}
-        option()
+         </div>`
+         option()
+         left_option()
+        }
+      
         
         j++;
          h++;
         if(j===10){
-           
+
 
 
 
@@ -4480,31 +4514,44 @@ for (let i = 0; i <array.length;i++) {
             k=0;
             for(k=0;k<10;k++){
              if(k===9){
+             
             document.querySelector(".two").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
          </div>`
-         }  else{ document.querySelector(".two").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+         option() 
+         left_option()
+        }  else{ document.querySelector(".two").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-         </div>`}
+         </div>`
          option()
+         left_option()
+        }
+      
         h++;
         j++;
             }   
         if(k===10){
+       
             for(l=0;l<10;l++){
                 
              if(l===9){
+           
             document.querySelector(".three").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
          </div>`
+         option()
+         left_option()
          }  else{ document.querySelector(".three").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-         </div>`}
+         </div>`
          option()
+         left_option()
+        }
+ 
         j++;
          h++;
         // if(l===10){
@@ -4514,17 +4561,25 @@ for (let i = 0; i <array.length;i++) {
         }
         }
         if(l===10){
+  
             for(m=0;m<10;m++){
                 if(m===9){
+                
+
             document.querySelector(".four").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
          </div>`
-         }  else{ document.querySelector(".four").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
+         option() 
+         left_option()
+        }  else{ document.querySelector(".four").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-         </div>`}
-           option()
+         </div>`
+         option()
+         left_option()
+        }
+      
          j++;
          h++;
         // if(l===10){
@@ -4535,17 +4590,24 @@ for (let i = 0; i <array.length;i++) {
         // option()
         }
         if(m===10){
+            
             for(n=0;n<10;n++){
                 if(n===9){
+                  
             document.querySelector(".five").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
          </div>`
+         option()
+         left_option()
          }  else{ document.querySelector(".five").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-         </div>`} 
-        option()
+         </div>`
+         option()
+         left_option()
+        } 
+
          j++
          h++;
         // if(l===10){
@@ -4553,19 +4615,28 @@ for (let i = 0; i <array.length;i++) {
         
     // }
         }
+        
         }
         if(n===10){
+       
             for(o=0;o<10;o++){
+            
                 if(o===9){
+                
             document.querySelector(".six").innerHTML+=`<div class="box box_con end" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
          </div>`
+         option()
+         left_option()
          }  else{ document.querySelector(".six").innerHTML+=` <div class="box box_con" id="result_${array[h]['id']}">
              <input disabled class="box num" type="number" value="${array[h]['number']}" id="dis2_${array[h]['id']}" >
                <i class="fa-solid fa-xmark"></i> <i class="fa-regular fa-circle"></i>
-         </div>`}
+         </div>`
          option()
+         left_option()
+        }
+   
        j++
          h++;
         // if(l===10){
@@ -4593,31 +4664,7 @@ for (let i = 0; i <array.length;i++) {
 
 
 
-document.querySelectorAll(".box_con").forEach(element => {
-    element.addEventListener("click",(event)=>{
-       console.log(event.target.parentElement);
-        if(event.target.parentElement.classList.contains("select")){
-            event.target.parentElement.classList.remove("select");
-            
-        }else if(event.target.parentElement.classList.contains("searching_select")){
-            event.target.parentElement.classList.replace("searching_select","select")
-        }
-        else if(event.target.parentElement.classList.contains("selected")){
-            event.target.parentElement.classList.replace("selected","select")
-            event.target.parentElement.classList.add("select_selected")
 
-        }
-        else if(event.target.parentElement.classList.contains("select_selected")){
-            event.target.parentElement.classList.replace("select_selected","selected")
-        }
-        
-        else{
-            event.target.parentElement.classList.add("select");
-        }
-        
-    })
-
-});
 
 
 
