@@ -289,6 +289,40 @@ input::-webkit-inner-spin-button{
 /* .color-picker{
     position: ;
 } */
+
+.red{
+    width: 10px;
+    height: 10px;
+    color:red;
+    background-color: red;
+}
+.green{
+    width: 10px;
+    height: 10px;
+    color:green;
+    background-color: green;
+}
+.blue{
+    width: 10px;
+    height: 10px;
+    color:blue;
+    background-color: blue;
+}
+.yellow{
+    width: 10px;
+    height: 10px;
+    color:yellow;
+    background-color: yellow;
+}
+.violet{
+    width: 10px;
+    height: 10px;
+    color:violet;
+    background-color: violet;
+}
+
+
+
  @media  (max-width: 826px) {
  
     .row_column_display2{
@@ -581,9 +615,46 @@ bottom: 0%; */
     05      07       09         07
 </pre>
 </div>
-<i class="fa-solid fa-table-cells-large view"></i>
+<div style="display: flex; flex-direction: column;">
+    <div>
+    <i class="fa-solid fa-table-cells-large view"></i>
+    <i class="fa-solid fa-table-cells display2"></i>
+    <i class="fa-solid fa-chart-line chart"></i>
+    </div>
+    <div class="check_search">
+        <input class="form-check-input2 color" type="radio" name="flexRadio" id="">
+        <label class="form-check-label" >
+            <div class="red"></div>
+        </label>
+        </div>
+        <div class="check_search">
+            <input class="form-check-input2 color" type="radio" name="flexRadio" id="">
+            <label class="form-check-label" >
+                <div class="green"></div>
+            </label>
+            </div>
+            <div class="check_search">
+                <input class="form-check-input2 color" type="radio" name="flexRadio" id="">
+                <label class="form-check-label" >
+                    <div class="blue"></div>
+                </label>
+                </div>
+                <div class="check_search">
+                    <input class="form-check-input2 color" type="radio" name="flexRadio" id="">
+                    <label class="form-check-label" >
+                        <div class="yellow"></div>
+                    </label>
+                    </div>
+                    <div class="check_search">
+                        <input class="form-check-input2  color" type="radio" name="flexRadio" id="">
+                        <label class="form-check-label" >
+                            <div class="violet"></div>
+                        </label>
+                        </div>
+    </div>
+<!-- <i class="fa-solid fa-table-cells-large view"></i>
 <i class="fa-solid fa-table-cells display2"></i>
-<i class="fa-solid fa-chart-line chart"></i>
+<i class="fa-solid fa-chart-line chart"></i> -->
 
 <?php
     require('chaing_connect.php');
@@ -1532,6 +1603,30 @@ for(el of document.querySelectorAll(".searching_select") ){
 el.classList.remove("searching_select")
 }
 })
+
+document.querySelectorAll(".color").forEach(element => {
+   element.addEventListener("change",()=>{
+    console.log(element.classList.add("choose"));
+
+    for(el of searching){
+
+
+
+
+document.getElementById(el.split(".")[1]).parentElement.childNodes[5].style.color = document.querySelector(".color.choose").parentElement.childNodes[3].childNodes[1].className
+
+// 
+   
+}
+document.querySelector(".color.choose").classList.remove("choose")
+
+   }) 
+});
+
+
+
+
+
 </script>
 </body>
 </html>
