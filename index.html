@@ -683,25 +683,24 @@ while ($row = mysqli_fetch_assoc($result)) {
 const url = "https://script.googleusercontent.com/macros/echo?user_content_key=mjsJ69srufFj-0g8F0OkP__Ciy5__1Yw7OhEXGKV8xMnICRCf0C1ZXUeO1Zibwl_4OPruBrSmY8Qa6syRUaNgE_WuM7jw2O5m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC9SeqZVm-77uExarZb0zsDmex3qOw_BtHAnu4vlfqIDX3FtSfBS5ISmdM9Sdi7oh5oUCUl_gKRyYLvO2gRHyyGVW_HjeCVv1tz9Jw9Md8uu&lib=MBtkfQnLjlz2sd9EhmLX58aYEaSESECOi";
 
 
-// interval=()=>{fetch(url)
-//     .then(response=>
-//         response.json()).then(array_response=>
+ interval=()=>{fetch(url)
+    .then(response=>
+       response.json()).then(array_response=>
            
-//         array= array_response
-       
-//         )
+        array= array_response   
+      )
 
 
-//    }
+  }
  
    
-//   api =  setInterval(() => {
-//     interval()
-// console.log("hi");
+  api =  setInterval(() => {
+     interval()
+console.log("hi");
 
-// clearInterval(api)
+clearInterval(api)
 
-//    }, 1000  );
+   }, 1000  );
 
 
 
@@ -1439,3 +1438,4 @@ document.querySelector(".drawing").addEventListener("click",()=>{
 </body>
 
 </html>
+
